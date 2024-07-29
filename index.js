@@ -2,6 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const layoutController = require("./controllers/layoutController");
+const carouselController = require("./controllers/carouselController");
+const historyController = require("./controllers/historyController");
+const directoryController = require("./controllers/directoryController");
 const connectDB = require("./config/db"); // Adjust the path if necessary
 
 const app = express();
@@ -15,7 +18,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.use("/layouts", layoutController);
+app.use("/api/layouts", layoutController);
+app.use("/api/carousels", carouselController);
+app.use("/api/history", historyController);
+app.use("/api/directories", directoryController);
 
 // Error handling middleware (optional)
 app.use((err, req, res, next) => {

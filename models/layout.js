@@ -13,6 +13,11 @@ const RouteSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isCurrentlyUsed: {
+    type: Boolean,
+    default: false,
+    required: true,
+  },
 });
 
 const LayoutSchema = new mongoose.Schema({
