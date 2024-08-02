@@ -1,5 +1,5 @@
 const express = require("express");
-const formService = require("../services/formService");
+const formService = require("../services/formService"); // Adjust the path as necessary
 const router = express.Router();
 
 const getForms = async (req, res) => {
@@ -89,6 +89,16 @@ const setFieldStatus = async (req, res) => {
   }
 };
 
+const getCurrentForm = async (req, res) => {
+  try {
+    const form = await formService.getCurrentForm();
+    res.status(200).json({ success: true, data: form });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+router.get("/current", getCurrentForm);
 router.get("/", getForms);
 router.get("/:id", getFormById);
 router.post("/", createForm);

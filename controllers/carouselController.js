@@ -122,6 +122,7 @@ const removeImageFromCarousel = async (req, res) => {
 };
 
 // Define routes and attach controller functions
+router.get("/current", getCurrentCarousel);
 router.get("/", getCarousels);
 router.get("/:id", getCarouselById);
 router.post("/", createCarousel);

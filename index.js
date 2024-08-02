@@ -5,6 +5,8 @@ const layoutController = require("./controllers/layoutController");
 const carouselController = require("./controllers/carouselController");
 const historyController = require("./controllers/historyController");
 const directoryController = require("./controllers/directoryController");
+const formController = require("./controllers/formController");
+const responseController = require("./controllers/responseController");
 const connectDB = require("./config/db"); // Adjust the path if necessary
 
 const app = express();
@@ -22,6 +24,8 @@ app.use("/api/layouts", layoutController);
 app.use("/api/carousels", carouselController);
 app.use("/api/history", historyController);
 app.use("/api/directories", directoryController);
+app.use("/api/forms", formController);
+app.use("/api/responses", responseController);
 
 // Error handling middleware (optional)
 app.use((err, req, res, next) => {
